@@ -1,0 +1,1 @@
+export type RecordMap<T> = Record<string, T>;

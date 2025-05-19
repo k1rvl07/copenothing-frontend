@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
+
+$colors-map: ();
+
+$font-weights-map: (
+  'thin': 100,
+  'extra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semi-bold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900,
+  'extra-black': 1000,
+);
+
+$breakpoints-map: ();

@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
+  "name": "copenothing-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -9,14 +10,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/chokidar": "^1.7.5",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "dotenv": "^16.5.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-pxtorem": "^6.1.0",
+    "postcss-sort-media-queries": "^5.2.0",
+    "reactcci": "^1.14.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5"
   }
 }
