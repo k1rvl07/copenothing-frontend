@@ -40,4 +40,4 @@ npm run lint
 ```
 
 ## Links / Ссылки
-- [Backend Repository](<link-to-backend>) / [Репозиторий бэкенда](<link-to-backend>)
+- [Backend Repository](<https://github.com/k1rvl07/copenothing-backend>) / [Репозиторий бэкенда](<https://github.com/k1rvl07/copenothing-backend>)
