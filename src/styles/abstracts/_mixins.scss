@@ -1,0 +1,395 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+@use "./maps.scss" as *;
+@use "./functions.scss" as *;
+
+@mixin respond-to($media) {
+    @if map.has-key($breakpoints-map, $media) {
+        @media (min-width: map.get($breakpoints-map, $media)) {
+            @content;
+        }
+    } @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$media}`. "
+            + "Available breakpoints are: #{map.keys($breakpoints)}.";
+    }
+}
+
+@mixin size($types, $values...) {
+    $types-list: if(meta.type-of($types) == "list", $types, ($types));
+    $value-index: 1;
+
+    @each $type in $types-list {
+        $pair: list.nth($values, $value-index);
+
+        $width: null;
+        $height: null;
+
+        @if meta.type-of($pair) == "list" and list.length($pair) >= 2 {
+            $width: list.nth($pair, 1);
+            $height: list.nth($pair, 2);
+        } @else {
+            $width: $pair;
+        }
+
+        @if $type == "default" {
+            width: $width;
+            @if $height != null {
+                height: $height;
+            }
+        } @else if $type == "min" {
+            min-width: $width;
+            @if $height != null {
+                min-height: $height;
+            }
+        } @else if $type == "max" {
+            max-width: $width;
+            @if $height != null {
+                max-height: $height;
+            }
+        } @else {
+            @error "Invalid size type: #{$type}. Use 'default', 'min', or 'max'.";
+        }
+
+        $value-index: $value-index + 1;
+    }
+}
+
+@mixin flex(
+    $flex: null,
+    $direction: null,
+    $justify-content: null,
+    $justify-items: null,
+    $align-content: null,
+    $align-items: null,
+    $wrap: null,
+    $gap: null,
+    $row-gap: null,
+    $column-gap: null
+) {
+    @if $flex == true {
+        display: flex;
+    }
+
+    @if $direction != null {
+        flex-direction: $direction;
+    }
+
+    @if $justify-content != null {
+        justify-content: $justify-content;
+    }
+
+    @if $justify-items != null {
+        justify-items: $justify-items;
+    }
+
+    @if $align-content != null {
+        align-content: $align-content;
+    }
+
+    @if $align-items != null {
+        align-items: $align-items;
+    }
+
+    @if $wrap != null {
+        flex-wrap: $wrap;
+    }
+
+    @if $gap != null {
+        gap: $gap;
+    }
+
+    @if $row-gap != null {
+        row-gap: $row-gap;
+    }
+
+    @if $column-gap != null {
+        column-gap: $column-gap;
+    }
+}
+
+@mixin flex-item-alignment(
+    $align-self: null,
+    $justify-self: null,
+    $flex-grow: null,
+    $flex-shrink: null,
+    $flex-basis: null,
+    $order: null
+) {
+    @if $align-self != null {
+        align-self: $align-self;
+    }
+
+    @if $flex-grow != null {
+        flex-grow: $flex-grow;
+    }
+
+    @if $flex-shrink != null {
+        flex-shrink: $flex-shrink;
+    }
+
+    @if $flex-basis != null {
+        flex-basis: $flex-basis;
+    }
+
+    @if $order != null {
+        order: $order;
+    }
+}
+
+@mixin grid(
+    $grid: null,
+    $rows: null,
+    $columns: null,
+    $areas: null,
+    $row-gap: null,
+    $column-gap: null,
+    $gap: null,
+    $justify-items: null,
+    $align-items: null,
+    $justify-content: null,
+    $align-content: null
+) {
+    @include grid-template($grid, $rows, $columns, $areas, $row-gap, $column-gap, $gap);
+    @include grid-alignment($justify-items, $align-items, $justify-content, $align-content);
+}
+
+@mixin grid-template(
+    $grid: null,
+    $rows: null,
+    $columns: null,
+    $areas: null,
+    $row-gap: null,
+    $column-gap: null,
+    $gap: null
+) {
+    @if $grid == true {
+        display: grid;
+    }
+    @if $rows != null {
+        grid-template-rows: $rows;
+    }
+    @if $columns != null {
+        grid-template-columns: $columns;
+    }
+    @if $areas != null {
+        grid-template-areas: $areas;
+    }
+    @if $row-gap != null {
+        row-gap: $row-gap;
+    }
+    @if $column-gap != null {
+        column-gap: $column-gap;
+    }
+    @if $gap != null {
+        gap: $gap;
+    }
+}
+
+@mixin grid-alignment($justify-items: null, $align-items: null, $justify-content: null, $align-content: null) {
+    @if $justify-items != null {
+        justify-items: $justify-items;
+    }
+    @if $align-items != null {
+        align-items: $align-items;
+    }
+    @if $justify-content != null {
+        justify-content: $justify-content;
+    }
+    @if $align-content != null {
+        align-content: $align-content;
+    }
+}
+
+@mixin grid-item-alignment($grid-area: null, $justify-self: null, $align-self: null) {
+    @if $grid-area != null {
+        grid-area: $grid-area;
+    }
+
+    @if $justify-self != null {
+        justify-self: $justify-self;
+    }
+
+    @if $align-self != null {
+        align-self: $align-self;
+    }
+}
+
+@mixin spacing($types, $values...) {
+    $types-list: if(meta.type-of($types) == "list", $types, ($types));
+
+    $value-count: list.length($values);
+    $type-count: list.length($types-list);
+
+    @if $type-count != $value-count {
+        @error "The number of types (#{$type-count}) should match the number of values (#{$value-count}).";
+    }
+
+    @for $i from 1 through $type-count {
+        $type: list.nth($types-list, $i);
+        $value: list.nth($values, $i);
+
+        @if $type != "margin" and $type != "padding" {
+            @error "Invalid type: #{$type}. Use 'margin' or 'padding'.";
+        }
+
+        @if meta.type-of($value) == "list" and list.separator($value) == space {
+            #{$type}: $value;
+        } @else if meta.type-of($value) != "list" {
+            #{$type}: $value;
+        } @else {
+            @error "The value for '#{$type}' has an invalid format. Use for example: (24px 32px)";
+        }
+    }
+}
+
+@mixin position($type: null, $values...) {
+    @if $type != null {
+        @if $type == "relative" or $type == "absolute" or $type == "fixed" or $type == "sticky" {
+            position: $type;
+        } @else {
+            @error "Invalid type: #{$type}. Use 'relative', 'absolute', 'fixed', or 'sticky'.";
+        }
+    }
+
+    $value-count: list.length($values);
+
+    @if $value-count == 1 {
+        inset: list.nth($values, 1);
+    } @else if $value-count == 2 {
+        $v: list.nth($values, 1);
+        $h: list.nth($values, 2);
+        inset: $v $h;
+    } @else if $value-count == 3 {
+        top: list.nth($values, 1);
+        right: list.nth($values, 2);
+        bottom: list.nth($values, 3);
+        left: list.nth($values, 2);
+    } @else if $value-count == 4 {
+        top: list.nth($values, 1);
+        right: list.nth($values, 2);
+        bottom: list.nth($values, 3);
+        left: list.nth($values, 4);
+    } @else if $value-count > 0 {
+        @error "Invalid number of values. Provide either 1, 2, 3, or 4 values.";
+    }
+}
+
+@mixin object-fit($fit: null, $position: null) {
+    @if $fit != null {
+        object-fit: $fit;
+    }
+
+    @if $position != null {
+        object-position: $position;
+    }
+}
+
+@mixin background-image($image-path, $repeat: null, $size: null, $position: null) {
+    background-image: url($image-path);
+
+    @if $repeat != null {
+        background-repeat: $repeat;
+    }
+
+    @if $size != null {
+        background-size: $size;
+    }
+
+    @if $position != null {
+        background-position: $position;
+    }
+}
+
+@mixin font(
+    $font-family: null,
+    $font-weight: null,
+    $font-style: null,
+    $color-name: null,
+    $line-height: null,
+    $font-size: null,
+    $tablet-font-size: null,
+    $laptop-font-size: null,
+    $desktop-font-size: null
+) {
+    @if $font-family != null {
+        font-family: font-family($font-family);
+    }
+
+    @if $font-weight != null {
+        font-weight: font-weight($font-weight);
+    }
+
+    @if $font-style != null {
+        font-style: $font-style;
+    }
+
+    @if $color-name != null {
+        color: color($color-name);
+    }
+
+    @if $line-height != null {
+        line-height: $line-height;
+    }
+
+    @if $font-size != null {
+        font-size: $font-size;
+    }
+
+    @if $tablet-font-size != null and $tablet-font-size != $font-size {
+        @include respond-to(tablet) {
+            font-size: $tablet-font-size;
+        }
+    }
+
+    $prev-laptop-size: if($tablet-font-size != null, $tablet-font-size, $font-size);
+    @if $laptop-font-size != null and $laptop-font-size != $prev-laptop-size {
+        @include respond-to(laptop) {
+            font-size: $laptop-font-size;
+        }
+    }
+
+    $prev-desktop-size: if(
+        $laptop-font-size != null,
+        $laptop-font-size,
+        if($tablet-font-size != null, $tablet-font-size, $font-size)
+    );
+    @if $desktop-font-size != null and $desktop-font-size != $prev-desktop-size {
+        @include respond-to(desktop) {
+            font-size: $desktop-font-size;
+        }
+    }
+}
+
+@mixin button($spacing: null, $background-color: null, $border-style: null, $border-radius: null) {
+    @include flex(true, $align-items: center, $justify-content: center);
+
+    @if $spacing != null {
+        $arg1: list.nth($spacing, 1);
+        $arg2: null;
+
+        @if list.length($spacing) > 1 {
+            $arg2: list.nth($spacing, 2);
+        }
+
+        @if $arg2 != null {
+            @include spacing(padding, ($arg1 $arg2));
+        } @else {
+            @include spacing(padding, ($arg1));
+        }
+    }
+
+    @if $background-color != null {
+        background-color: color($background-color);
+    }
+
+    @if $border-style != null {
+        border: nth($border-style, 1) nth($border-style, 2) nth($border-style, 3);
+    }
+
+    @if $border-radius != null {
+        border-radius: $border-radius;
+    }
+}

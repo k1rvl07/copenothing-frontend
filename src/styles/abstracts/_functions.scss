@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+@use "./maps.scss" as *;
+
+@function font-weight($weight-name) {
+  @if not map.has-key($font-weights-map, $weight-name) {
+    @error "Weight `#{$weight-name}` not found. Available weights: #{map.keys($font-weights-map)}";
+  }
+  @return map.get($font-weights-map, $weight-name);
+}
+
+@function font-family($font-family-name) {
+  @if not map.has-key($font-families-map, $font-family-name) {
+    @error "Font `#{$font-family-name}` not found. Available fonts: #{map.keys($font-families-map)}";
+  }
+  @return map.get($font-families-map, $font-family-name);
+}
+
+@function color($key) {
+  @if not map.has-key($colors-map, $key) {
+    @error "Color `#{$key}` not found. Available colors: #{map.keys($colors-map)}";
+  }
+  @return map.get($colors-map, $key);
+}

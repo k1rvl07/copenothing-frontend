@@ -1,0 +1,1 @@
+export { abbreviateWalletAddress } from "./abbreviateWalletAddress";

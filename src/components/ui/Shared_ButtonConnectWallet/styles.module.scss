@@ -1,0 +1,6 @@
+@use "abstracts/index.scss" as *;
+
+.button-connect-wallet {
+    @include button((14px, 32px), "white", $border-radius: 150px);
+    @include font("krona-one", "regular", null, "black", 24px, 15px);
+}

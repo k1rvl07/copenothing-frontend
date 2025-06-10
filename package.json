@@ -7,14 +7,23 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write",
+    "lint:unsafe": "biome lint --unsafe .",
+    "format": "biome format .",
+    "format:write": "biome format --write",
+    "check:unsafe:write": "biome check --unsafe --write"
   },
   "dependencies": {
+    "framer-motion": "^12.16.0",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sass": "^1.89.1",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@types/chokidar": "^1.7.5",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -25,6 +34,7 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-pxtorem": "^6.1.0",
     "postcss-sort-media-queries": "^5.2.0",
+    "react-responsive": "^10.0.1",
     "reactcci": "^1.14.0",
     "tsx": "^4.19.4",
     "typescript": "^5"

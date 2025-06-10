@@ -1,0 +1,55 @@
+@use "abstracts/index.scss" as *;
+
+.header {
+    @include spacing(padding, (24px 0));
+    &__container {
+        @include flex(true, $align-items: center, $justify-content: space-between);
+        @include respond-to(desktop) {
+            @include flex($justify-content: start);
+        }
+    }
+    &__logo {
+        z-index: 2;
+    }
+    &__buttons-bar {
+        @include flex(true, $align-items: center, $gap: 8px);
+    }
+    &__button {
+        &:nth-child(1),
+        &:nth-child(3) {
+            @include button((14px), "white", $border-radius: 100%);
+        }
+        &:nth-child(2) {
+            display: none;
+            @include respond-to(tablet) {
+                display: block;
+            }
+        }
+        &:nth-child(3) {
+            z-index: 2;
+            @include respond-to(desktop) {
+                display: none;
+            }
+        }
+    }
+    .nav {
+        display: none;
+        background-color: white;
+        border-radius: 150px;
+        @include respond-to(desktop) {
+            display: block;
+            @include spacing(margin, (0 420px 0 auto));
+        }
+        &__list {
+            @include flex(true, $align-items: center, $gap: 3px);
+            @include size(default, (null, 52px));
+            @include spacing(padding, (4px));
+        }
+        &__link {
+            @include font("krona-one", regular, normal, "black", 1.2, 17px);
+            border-radius: 40px;
+            background-color: color("white");
+            @include spacing(padding, (12px 16px));
+        }
+    }
+}

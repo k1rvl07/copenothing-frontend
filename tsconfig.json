@@ -20,8 +20,14 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@types": ["./src/types/index.type.ts"],
-      "@exports" : ["./src/utils/exports/index.ts"]
+      "@types": ["./src/types/types.ts"],
+      "@components": ["./src/components/index.ts"],
+      "@utils": ["./src/utils/index.ts"],
+      "@motion": ["./src/motion/index.ts"],
+      "@content": ["./src/content/index.ts"],
+      "@hooks": ["./src/hooks/index.ts"],
+      "@store": ["./src/store/index.ts"],
+      "@constants": ["./src/constants/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

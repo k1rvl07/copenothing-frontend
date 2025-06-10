@@ -1,0 +1,46 @@
+@use "abstracts/index.scss" as *;
+
+.modal-connect-wallet {
+    @include position(fixed, 0);
+    @include size(min, (null, 500px));
+    background-color: color("primary-overlay");
+    @include flex(true, $align-items: center, $justify-content: center);
+    z-index: 3;
+    &__container {
+        @include flex(true, $align-items: center, $justify-content: center);
+    }
+    .form {
+        @include flex(true, column, $align-items: start, $justify-content: center);
+        background-color: color("white");
+        @include spacing(padding, (24px 32px));
+        border-radius: 24px;
+        @include respond-to(tablet) {
+            @include size(default, 500px);
+        };
+        @include respond-to(laptop) {
+            @include size(default, 680px); 
+        };
+        @include respond-to(desktop) {
+            @include size(default, 840px);
+        }
+        &__title {
+            @include font("krona-one", regular, normal, "black", 1.2, 24px);
+        }
+        &__input {
+            @include spacing(padding, (14px 20px));
+            @include font("poppins", regular, normal, "black", 1.2, 15px);
+            background-color: color("surface");
+            border-radius: 15px;
+            @include  spacing(margin, (16px 0));
+            @include size(default, 100%);
+            &::placeholder {
+                color: color("grey"); 
+            }
+        }
+        &__button {
+            @include size(default, 100%);
+            @include button((12px, 0px), "primary", $border-radius: 150px);
+            @include font("krona-one", regular, normal, "black", 1.2, 16px);
+        }
+    }
+}

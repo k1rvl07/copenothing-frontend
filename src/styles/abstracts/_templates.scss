@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+@use "./maps.scss" as *;
+@use "./lists.scss" as *;
+@use "./mixins.scss" as *;
+@use "./functions.scss" as *;
+
+%container {
+  @include size(default, 320px);
+  @include spacing(margin, 0 auto);
+  @include respond-to(tablet) {
+    @include size(default, 720px);
+  }
+  @include respond-to(laptop) {
+    @include size(default, 976px);
+  }
+  @include respond-to(desktop) {
+    @include size(default, 1544px);
+  }
+}

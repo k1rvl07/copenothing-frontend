@@ -1,7 +1,10 @@
-export default function HomePage() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+import { PageHome } from "@components";
+
+export const metadata = {
+  title: "Copenothing - Home",
+  description: "Online merch store",
+};
+
+export default function Home() {
+  return <PageHome />;
 }

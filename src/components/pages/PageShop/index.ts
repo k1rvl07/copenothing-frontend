@@ -1,0 +1,1 @@
+export { PageShop } from "./PageShop";
