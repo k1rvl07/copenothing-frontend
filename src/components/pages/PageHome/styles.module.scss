@@ -1,1 +1,179 @@
 @use "abstracts/index.scss" as *;
+
+.main {
+    @include position(relative);
+    @include size(default, (null, 720px));
+    overflow-x: hidden;
+    @include respond-to(tablet) {
+        @include size(default, (null, 800px)); 
+    }
+    @include respond-to(desktop) {
+        @include size(default, (null, 880px)); 
+    }
+    &__container {
+        @include flex(true, column, $align-items: center, $justify-content: center);
+    }
+    &__background {
+        @include position(absolute);
+        &:nth-child(1) {
+            @include size(default, 185px);
+            @include position(
+                $inset: (
+                    auto 0 110px 0
+                )
+            );
+            @include respond-to(tablet) {
+                @include size(default, 280px);
+                @include position(
+                    $inset: (
+                        auto 0 95px 0
+                    )
+                );
+            }
+            @include respond-to(desktop) {
+                @include size(default, 360px);
+                @include position(
+                    $inset: (
+                        auto 0 50px 0
+                    )
+                );
+            }
+        }
+        &:nth-child(2) {
+            @include size(default, 280px);
+            @include position(
+                $inset: (
+                    auto -100px 35px auto
+                )
+            );
+            @include respond-to(tablet) {
+                @include size(default, 420px);
+                @include position(
+                    $inset: (
+                        auto -160px 15px auto
+                    )
+                );
+            }
+            @include respond-to(desktop) {
+                @include size(default, 540px);
+                @include position(
+                    $inset: (
+                        auto -10px 0 auto
+                    )
+                );
+            }
+        }
+        &:nth-child(3) {
+            @include size(default, 160px);
+            @include position(
+                $inset: (
+                    12px -20px 0 auto
+                )
+            );
+            @include respond-to(tablet) {
+                @include size(default, 270px);
+                @include position(
+                    $inset: (
+                        20px -40px 0 auto
+                    )
+                );
+            }
+            @include respond-to(desktop) {
+                @include size(default, 310px);
+                @include position(
+                    $inset: (
+                        0 15px 0 auto
+                    )
+                )
+            }
+        }
+        &:nth-child(4) {
+            @include size(default, 160px);
+            @include position(
+                $inset: (
+                    12px 0 0 -20px
+                )
+            );
+            @include respond-to(tablet) {
+                @include size(default, 280px);
+                @include position(
+                    $inset: (
+                        -20px 0 0 -10px
+                    )
+                );
+            }
+            @include respond-to(laptop) {
+                @include position(
+                    $inset: (
+                        -20px 0 0 30px
+                    )
+                )
+            }
+            @include respond-to(desktop) {
+                @include size(default, 320px);
+                @include position(
+                    $inset: (
+                        -50px 0 0 180px
+                    )
+
+                ) 
+            }
+        }
+    }
+    &__logo {
+        @include spacing(margin, (16px 0 34px 0));
+        @include respond-to(tablet) {
+            @include spacing(margin, (32px 0 80px 0));
+        }
+        @include respond-to(laptop) {
+            @include size(default, 896px);
+            @include spacing(margin, (19px 0 67px 0));
+        }
+        @include respond-to(desktop) {
+            @include size(default, 1504px);
+            @include spacing(margin, (13px 0 58px 0));
+        }
+    }
+    &__text {
+        @include font("rubik-bubbles", regular, normal, "black", 1, 22px, 40px);
+        text-align: center;
+        text-shadow:
+            -2px -2px 0 white,
+            2px -2px 0 white,
+            2px 2px 0 white,
+            -2px 2px 0 white;
+        @include spacing(margin, (121px 0 0 0));
+        @include respond-to(tablet) {
+            @include spacing(margin, (128px 0 0 0));
+        }
+    }
+    &__button {
+        @include button((28px, 77px), $border-style: 6px solid color("white"), $border-radius: 40px);
+        @include font("krona-one", regular, normal, "white", 1.2, 17px);
+        background: radial-gradient(ellipse at center, #525252 0%, #282828 100%);
+        rotate: -3deg;
+        &-container {
+            @include position(relative);
+        }
+        &-image {
+            @include position(absolute);
+            pointer-events: none;
+            &:nth-of-type(1) {
+                @include size(default, 90px);
+                @include position(
+                    $inset: (
+                        auto -30px -18px auto
+                    )
+                );
+            }
+            &:nth-of-type(2) {
+                @include size(default, 120px);
+                @include position(
+                    $inset: (
+                        -28px auto 0 -28px
+                    )
+                );
+            }
+        }
+    }
+}

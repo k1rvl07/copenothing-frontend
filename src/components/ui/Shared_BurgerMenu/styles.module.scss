@@ -4,8 +4,7 @@
     @include flex(true, column, $align-items: center, $justify-content: center);
     background-color: color("primary-overlay");
     @include size(min, (null, 500px));
-    @include position(fixed, 0);
-    z-index: 1;
+    @include position(fixed, 0, 1);
     &__container {
         @include flex(true, column, $align-items: center, $justify-content: center, $gap: 24px);
     }

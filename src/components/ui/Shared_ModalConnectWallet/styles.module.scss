@@ -16,10 +16,10 @@
         border-radius: 24px;
         @include respond-to(tablet) {
             @include size(default, 500px);
-        };
+        }
         @include respond-to(laptop) {
-            @include size(default, 680px); 
-        };
+            @include size(default, 680px);
+        }
         @include respond-to(desktop) {
             @include size(default, 840px);
         }
@@ -31,15 +31,15 @@
             @include font("poppins", regular, normal, "black", 1.2, 15px);
             background-color: color("surface");
             border-radius: 15px;
-            @include  spacing(margin, (16px 0));
+            @include spacing(margin, (16px 0));
             @include size(default, 100%);
             &::placeholder {
-                color: color("grey"); 
+                color: color("grey");
             }
         }
         &__button {
-            @include size(default, 100%);
             @include button((12px, 0px), "primary", $border-radius: 150px);
+            @include size(default, 100%);
             @include font("krona-one", regular, normal, "black", 1.2, 16px);
         }
     }
