@@ -36,9 +36,9 @@
         display: none;
         background-color: white;
         border-radius: 150px;
+        @include spacing(margin, (0 395px 0 auto));
         @include respond-to(desktop) {
             display: block;
-            @include spacing(margin, (0 420px 0 auto));
         }
         &__list {
             @include flex(true, $align-items: center, $gap: 3px);

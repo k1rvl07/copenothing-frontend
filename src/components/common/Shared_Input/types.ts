@@ -7,6 +7,7 @@ export type InputProps = Partial<
     WithId & {
       value?: string | number;
       type?: InputType;
+      name?: string;
       placeholder?: string;
       required?: boolean;
       minLength?: number;

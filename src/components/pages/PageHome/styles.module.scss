@@ -5,10 +5,10 @@
     @include size(default, (null, 720px));
     overflow-x: hidden;
     @include respond-to(tablet) {
-        @include size(default, (null, 800px)); 
+        @include size(default, (null, 800px));
     }
     @include respond-to(desktop) {
-        @include size(default, (null, 880px)); 
+        @include size(default, (null, 880px));
     }
     &__container {
         @include flex(true, column, $align-items: center, $justify-content: center);
@@ -84,7 +84,7 @@
                     $inset: (
                         0 15px 0 auto
                     )
-                )
+                );
             }
         }
         &:nth-child(4) {
@@ -107,7 +107,7 @@
                     $inset: (
                         -20px 0 0 30px
                     )
-                )
+                );
             }
             @include respond-to(desktop) {
                 @include size(default, 320px);
@@ -115,8 +115,7 @@
                     $inset: (
                         -50px 0 0 180px
                     )
-
-                ) 
+                );
             }
         }
     }
@@ -135,7 +134,6 @@
         }
     }
     &__text {
-        @include font("rubik-bubbles", regular, normal, "black", 1, 22px, 40px);
         text-align: center;
         text-shadow:
             -2px -2px 0 white,
@@ -143,6 +141,7 @@
             2px 2px 0 white,
             -2px 2px 0 white;
         @include spacing(margin, (121px 0 0 0));
+        @include font("rubik-bubbles", regular, normal, "black", 1, 22px, 40px);
         @include respond-to(tablet) {
             @include spacing(margin, (128px 0 0 0));
         }

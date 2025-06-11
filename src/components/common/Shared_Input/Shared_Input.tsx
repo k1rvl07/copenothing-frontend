@@ -8,6 +8,7 @@ export const Shared_Input = ({
   id,
   value,
   type = "text",
+  name,
   placeholder,
   onChange,
   required,
@@ -22,6 +23,7 @@ export const Shared_Input = ({
       value={value}
       type={type}
       placeholder={placeholder}
+      name={name}
       onChange={onChange}
       required={required}
       minLength={minLength}

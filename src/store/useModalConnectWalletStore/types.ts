@@ -1,8 +1,9 @@
 export type ModalConnectWalletState = {
   isOpen: boolean;
-  walletAddress: string;
-  toggle: () => void;
+  walletAddress: string | null;
   open: () => void;
   close: () => void;
-  setWalletAddress: (address: string) => void;
+  toggle: () => void;
+  setWalletAddress: (address: string | null) => void;
+  reset: () => void;
 };

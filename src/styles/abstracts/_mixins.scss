@@ -375,7 +375,7 @@
     }
 
     @if $border-style != null {
-        border: nth($border-style, 1) nth($border-style, 2) nth($border-style, 3);
+        border: list.nth($border-style, 1) list.nth($border-style, 2) list.nth($border-style, 3);
     }
 
     @if $border-radius != null {
