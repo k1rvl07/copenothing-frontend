@@ -1,4 +1,5 @@
 import { buttonMotion, routerLinkMotion } from "@motion";
+import { easeInOut } from "framer-motion";
 import type { isOpen } from "./types";
 
 export const basicWithShadow = buttonMotion.basicWithShadow;
@@ -8,12 +9,12 @@ export const burgerMenuButtonMotionProps = {
     open: {
       rotate: 180,
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeInOut" as const },
+      transition: { duration: 0.4, ease: easeInOut },
     },
     closed: {
       rotate: -180,
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeInOut" as const },
+      transition: { duration: 0.4, ease: easeInOut },
     },
     initial: {
       rotate: 0,
@@ -22,7 +23,7 @@ export const burgerMenuButtonMotionProps = {
     exit: (isOpen: isOpen) => ({
       rotate: isOpen ? 180 : -180,
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeInOut" as const },
+      transition: { duration: 0.4, ease: easeInOut },
     }),
   },
   exit: "exit",
@@ -30,7 +31,6 @@ export const burgerMenuButtonMotionProps = {
     rotate: 0,
     opacity: 0,
   },
-  transition: { duration: 0.4, ease: "easeInOut" as const },
 };
 
 export const routerLinkMotionProps = routerLinkMotion.basicForHeaderAndBurgerMenu;

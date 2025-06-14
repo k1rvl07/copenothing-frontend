@@ -15,6 +15,9 @@ export const useModalConnectWalletStore = create<ModalConnectWalletState>()(
     }),
     {
       name: "wallet-storage",
+      partialize: (state) => ({
+        walletAddress: state.walletAddress,
+      }),
     },
   ),
 );

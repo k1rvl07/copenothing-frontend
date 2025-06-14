@@ -176,3 +176,87 @@
         }
     }
 }
+
+.about {
+    background-color: color("white");
+    border-radius: 30px;
+    @include respond-to(tablet) {
+        background-color: transparent;
+    }
+    &__container {
+        background-color: color("white");
+        border-radius: 30px;
+    }
+    &__wrapper {
+        @include spacing(padding, (20px));
+        @include flex(true, column, $align-items: center, $gap: 28px);
+        @include respond-to(laptop) {
+            @include flex($gap: 36px);
+        }
+        @include respond-to(desktop) {
+            @include flex($direction: row, $gap: 140px);
+        }
+    }
+    &__content {
+        @include flex(true, column, $align-items: center);
+        @include respond-to(tablet) {
+            @include size(default, 576px);
+            @include flex($gap: 24px);
+        }
+        @include respond-to(laptop) {
+            @include size(default, 698px);
+        }
+        @include respond-to(desktop) {
+            @include size(default, 603px);
+            @include flex($align-items: flex-start, $gap: 28px);
+        }
+    }
+    &__image {
+        @include object-fit(cover, center);
+        @include size(default, (320px, 204px));
+        border-radius: 15px;
+        @include respond-to(tablet) {
+            @include size(default, (100%, 476px));
+        }
+        @include respond-to(laptop) {
+            @include size(default, (null, 656px));
+        }
+        @include respond-to(desktop) {
+            @include size(default, (584px, 504px));
+        }
+    }
+    &__title {
+        text-align: center;
+        @include font("krona-one", regular, normal, "black", 28px, 24px, 30px, 30px, 40px);
+        @include respond-to(desktop) {
+            text-align: left;
+        }
+        &-highlight {
+            color: color("primary");
+        }
+    }
+    &__text {
+        @include font("poppins", regular, normal, "black", 24px, 15px);
+        text-align: center;
+        @include spacing(margin, (20px 0 28px));
+        @include respond-to(tablet) {
+            @include spacing(margin, (0));
+        }
+        @include respond-to(desktop) {
+            text-align: left;
+        }
+    }
+    &__button {
+        @include font("krona-one", regular, normal, "black", 1.2, 15px);
+        @include button((14px 0), "primary", $border-radius: 150px);
+        @include size(default, 100%);
+        @include flex(true, $align-items: center, $justify-content: center, $gap: 8px);
+        @include respond-to(tablet) {
+            @include size(default, fit-content);
+            @include spacing(padding, (14px 40px));
+        }
+        @include respond-to(desktop) {
+            @include spacing(padding, (20px 40px));
+        }
+    }
+}

@@ -1,18 +1,23 @@
+import { buttonMotion } from "@motion";
+import { easeOut } from "framer-motion";
+
+export const buttonBasicWithShadowMotionProps = buttonMotion.basicWithShadow;
+
 export const mainButtonMotionProps = {
   whileHover: {
     background: "radial-gradient(ellipse at center, #808080 0%, #282828 100%)",
-    transition: { duration: 0.3, ease: "easeOut" as const },
+    transition: { duration: 0.3, ease: easeOut },
     scale: 1.05,
     rotate: 3,
   },
   whileTap: {
     background: "radial-gradient(ellipse at center, #525252 0%, #282828 100%)",
-    transition: { duration: 0.3, ease: "easeOut" as const },
+    transition: { duration: 0.3, ease: easeOut },
     scale: 1,
   },
   initial: {
     background: "radial-gradient(ellipse at center, #525252 0%, #282828 100%)",
-    transition: { duration: 0.3, ease: "easeOut" as const },
+    transition: { duration: 0.3, ease: easeOut },
   },
 };
 
@@ -23,7 +28,7 @@ export const mainButtonImageMotionProps = {
     tap: { opacity: 0 },
   },
   initial: "exit",
-  transition: { duration: 0.3, ease: "easeOut" as const },
+  transition: { duration: 0.3, ease: easeOut },
 };
 
 export const mainButtonImageCapMotionProps = {

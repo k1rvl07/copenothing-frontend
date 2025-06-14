@@ -1,9 +1,9 @@
 export default {
   plugins: {
-    autoprefixer: {},
-    cssnano: {},
+    "postcss-sort-media-queries": {},
     "postcss-flexbugs-fixes": {},
     "postcss-pxtorem": {},
-    "postcss-sort-media-queries": {},
+    autoprefixer: {},
+    cssnano: {},
   },
 };
