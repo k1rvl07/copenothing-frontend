@@ -8,12 +8,12 @@ export const burgerMenuButtonMotionProps = {
     open: {
       rotate: 180,
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: { duration: 0.4, ease: "easeInOut" as const },
     },
     closed: {
       rotate: -180,
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: { duration: 0.4, ease: "easeInOut" as const },
     },
     initial: {
       rotate: 0,
@@ -22,7 +22,7 @@ export const burgerMenuButtonMotionProps = {
     exit: (isOpen: isOpen) => ({
       rotate: isOpen ? 180 : -180,
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeInOut" },
+      transition: { duration: 0.4, ease: "easeInOut" as const },
     }),
   },
   exit: "exit",
@@ -30,7 +30,7 @@ export const burgerMenuButtonMotionProps = {
     rotate: 0,
     opacity: 0,
   },
-  transition: { duration: 0.4, ease: "easeInOut" },
+  transition: { duration: 0.4, ease: "easeInOut" as const },
 };
 
 export const routerLinkMotionProps = routerLinkMotion.basicForHeaderAndBurgerMenu;
