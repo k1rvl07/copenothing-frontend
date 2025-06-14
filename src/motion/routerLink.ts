@@ -7,7 +7,7 @@ export const routerLinkMotion = {
   basicForHeaderAndBurgerMenu: {
     transition: {
       duration: 0.3,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
     variants: {
       initial: {
