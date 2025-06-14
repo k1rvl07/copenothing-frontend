@@ -2,6 +2,7 @@ import type { WithChildren } from "@/types/types";
 import "../styles/_global.scss";
 import {
   Shared_BurgerMenu as BurgerMenu,
+  Shared_Footer as Footer,
   Shared_Header as Header,
   Shared_ModalConnectWallet as ModalConnectWallet,
 } from "@components";
@@ -51,7 +52,7 @@ export default function Layout({ children }: WithChildren) {
   return (
     <html
       lang="en"
-      className={`${fonts.poppins.variable} ${fonts.kronaOne.variable} ${fonts.rubikBubbles.variable} ${fonts.comicNeue.variable}`}
+      className={`${styles.html} ${fonts.poppins.variable} ${fonts.kronaOne.variable} ${fonts.rubikBubbles.variable} ${fonts.comicNeue.variable}`}
     >
       <head>
         <link rel="icon" href={`${MINIO_BUCKET_URL}/favicon/logo.ico`} />
@@ -59,6 +60,7 @@ export default function Layout({ children }: WithChildren) {
       <body className={styles.body}>
         <Header />
         {children}
+        <Footer />
         <BurgerMenu />
         <ModalConnectWallet />
       </body>

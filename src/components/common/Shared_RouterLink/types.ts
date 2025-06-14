@@ -1,13 +1,3 @@
-import type { WithChildren, WithClassName, WithHref, WithMotionProps, WithOnClick } from "@/types/types";
+import type { WithChildren, WithClassName, WithHref, WithMotionProps, WithOnClick } from "@types";
 
-export type RouterLinkProps = Partial<
-  WithChildren<
-    {
-      href: string;
-      as?: "a";
-    } & WithClassName &
-      WithMotionProps &
-      WithHref &
-      WithOnClick
-  >
->;
+export type RouterLinkProps = Partial<WithChildren<WithClassName & WithMotionProps & WithHref & WithOnClick>>;

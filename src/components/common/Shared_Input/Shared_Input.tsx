@@ -11,7 +11,7 @@ export const Shared_Input = ({
   name,
   placeholder,
   onChange,
-  required,
+  required = false,
   minLength,
   maxLength,
   motionProps = {},

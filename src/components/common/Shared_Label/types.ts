@@ -1,4 +1,4 @@
-import type { WithChildren, WithClassName, WithMotionProps } from "@/types/types";
+import type { WithChildren, WithClassName, WithMotionProps } from "@types";
 
 export type LabelProps = Partial<
   WithChildren<

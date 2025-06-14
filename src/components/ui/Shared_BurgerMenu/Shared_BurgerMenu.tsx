@@ -1,4 +1,5 @@
 "use client";
+import { useBurgerMenuStore, useModalConnectWalletStore } from "@/stores";
 import {
   Shared_ButtonConnectWallet as ButtonConnectWallet,
   Shared_Item as Item,
@@ -8,7 +9,6 @@ import {
   Shared_Section as Section,
 } from "@components";
 import { NAV } from "@content";
-import { useBurgerMenuStore, useModalConnectWalletStore } from "@store";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -52,7 +52,7 @@ export const Shared_BurgerMenu = () => {
                         animate: isActive ? "active" : "initial",
                       }}
                     >
-                      {item.label}
+                      {item.name}
                     </RouterLink>
                   </Item>
                 );

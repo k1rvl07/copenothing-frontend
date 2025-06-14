@@ -1,4 +1,5 @@
 "use client";
+import { useModalConnectWalletStore } from "@/stores";
 import {
   Shared_Button as Button,
   Shared_Form as Form,
@@ -6,7 +7,6 @@ import {
   Shared_Section as Section,
   Shared_Text as Text,
 } from "@components";
-import { useModalConnectWalletStore } from "@store";
 import { abbreviateWalletAddress } from "@utils";
 import { AnimatePresence } from "framer-motion";
 import type React from "react";

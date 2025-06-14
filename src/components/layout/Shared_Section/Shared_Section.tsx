@@ -1,3 +1,4 @@
+"use client";
 import { Shared_Container as Container } from "@components";
 import { motion } from "framer-motion";
 import { forwardRef, useMemo } from "react";

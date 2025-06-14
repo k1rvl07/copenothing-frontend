@@ -1,4 +1,5 @@
 "use client";
+import { useBurgerMenuStore, useModalConnectWalletStore } from "@/stores";
 import {
   Shared_Box as Box,
   Shared_Button as Button,
@@ -12,7 +13,6 @@ import {
 } from "@components";
 import { NAV } from "@content";
 import { useMediaQueries } from "@hooks";
-import { useBurgerMenuStore, useModalConnectWalletStore } from "@store";
 import { env } from "@utils";
 import { AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -56,7 +56,7 @@ export const Shared_Header = () => {
                       animate: isActive ? "active" : "initial",
                     }}
                   >
-                    {item.label}
+                    {item.name}
                   </RouterLink>
                 </Item>
               );
@@ -69,20 +69,14 @@ export const Shared_Header = () => {
           </Button>
           <ButtonConnectWallet className={styles.header__button} onClick={connectWalletModalToggle} />
           <Button className={styles.header__button} motionProps={basicWithShadow} onClick={burgerMenuToggle}>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" custom={isBurgerMenuOpen}>
               <Image
-                src={isBurgerMenuOpen ? `${MINIO_BUCKET_URL}/icons/close.svg` : `${MINIO_BUCKET_URL}/icons/bars.svg`}
                 key={isBurgerMenuOpen ? "close" : "bars"}
+                src={isBurgerMenuOpen ? `${MINIO_BUCKET_URL}/icons/close.svg` : `${MINIO_BUCKET_URL}/icons/bars.svg`}
                 motionProps={{
                   ...burgerMenuButtonMotionProps,
-                  animate: {
-                    ...burgerMenuButtonMotionProps.animate,
-                    rotate: isBurgerMenuOpen ? 180 : -180,
-                  },
-                  exit: {
-                    ...burgerMenuButtonMotionProps.exit,
-                    rotate: isBurgerMenuOpen ? -180 : 180,
-                  },
+                  animate: isBurgerMenuOpen ? "open" : "closed",
+                  custom: isBurgerMenuOpen,
                 }}
               />
             </AnimatePresence>

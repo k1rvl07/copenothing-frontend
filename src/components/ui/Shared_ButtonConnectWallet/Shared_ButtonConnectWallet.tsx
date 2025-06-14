@@ -1,5 +1,5 @@
+import { useModalConnectWalletStore } from "@/stores";
 import { Shared_Button as Button } from "@components";
-import { useModalConnectWalletStore } from "@store";
 import { abbreviateWalletAddress } from "@utils";
 import React from "react";
 import { basicWithShadow } from "./motion";

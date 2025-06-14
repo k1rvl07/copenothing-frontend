@@ -1,4 +1,4 @@
-import type { WithChildren, WithClassName, WithId, WithMotionProps, WithOnClick } from "@/types/types";
+import type { WithChildren, WithClassName, WithId, WithMotionProps, WithOnClick } from "@types";
 
 export type SectionTagName = "section" | "div" | "main" | "article" | "aside" | "header" | "footer";
 

@@ -26,7 +26,7 @@
       "@motion": ["./src/motion/index.ts"],
       "@content": ["./src/content/index.ts"],
       "@hooks": ["./src/hooks/index.ts"],
-      "@store": ["./src/store/index.ts"],
+      "@store": ["./src/stores/index.ts"],
       "@constants": ["./src/constants/index.ts"],
       "@services": ["./src/services/index.ts"],
       "@providers": ["./src/providers/index.ts"]

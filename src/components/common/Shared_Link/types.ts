@@ -1,11 +1,3 @@
-import type { WithChildren, WithClassName, WithHref, WithMotionProps } from "@/types/types";
+import type { WithChildren, WithClassName, WithHref, WithMotionProps } from "@types";
 
-export type LinkProps = Partial<
-  WithChildren<
-    {
-      as?: "a";
-    } & WithClassName &
-      WithMotionProps &
-      WithHref
-  >
->;
+export type LinkProps = Partial<WithChildren<WithClassName & WithMotionProps & WithHref>>;

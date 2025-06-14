@@ -1,10 +1,3 @@
-import type { WithChildren, WithClassName, WithMotionProps } from "@/types/types";
+import type { WithChildren, WithClassName, WithMotionProps } from "@types";
 
-export type NavProps = Partial<
-  WithChildren<
-    {
-      as?: "nav";
-    } & WithClassName &
-      WithMotionProps
-  >
->;
+export type NavProps = Partial<WithChildren<WithClassName & WithMotionProps>>;

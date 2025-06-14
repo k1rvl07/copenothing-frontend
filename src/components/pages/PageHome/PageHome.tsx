@@ -17,14 +17,14 @@ export const PageHome = () => {
   const mainButtonControls = useAnimation();
   return (
     <Section className={styles.main} containerClassName={styles.main__container}>
-      <Image src={`${MINIO_BUCKET_URL}/home/main/pepe.png`} alt="pepe" className={styles.main__background} />
-      <Image src={`${MINIO_BUCKET_URL}/home/main/pond.png`} alt="pond" className={styles.main__background} />
-      <Image src={`${MINIO_BUCKET_URL}/home/main/cap.png`} alt="cap" className={styles.main__background} />
-      <Image src={`${MINIO_BUCKET_URL}/home/main/tshirt.png`} alt="tshirt" className={styles.main__background} />
+      <Image src={`${MINIO_BUCKET_URL}/shared/pepe.png`} alt="pepe" className={styles.main__background} />
+      <Image src={`${MINIO_BUCKET_URL}/shared/pond.png`} alt="pond" className={styles.main__background} />
+      <Image src={`${MINIO_BUCKET_URL}/shared/cap.png`} alt="cap" className={styles.main__background} />
+      <Image src={`${MINIO_BUCKET_URL}/shared/tshirt.png`} alt="tshirt" className={styles.main__background} />
       <Text as="h1" className={styles.main__text}>
         MERCH STORE
       </Text>
-      <Image src={`${MINIO_BUCKET_URL}/home/main/logo.png`} alt="logo" className={styles.main__logo} />
+      <Image src={`${MINIO_BUCKET_URL}/shared/logo.png`} alt="logo" className={styles.main__logo} />
       <Box className={styles["main__button-container"]}>
         <RouterLink
           href="/shop"
@@ -39,7 +39,7 @@ export const PageHome = () => {
           SHOP NOW
         </RouterLink>
         <Image
-          src={`${MINIO_BUCKET_URL}/home/main/cap.png`}
+          src={`${MINIO_BUCKET_URL}/shared/cap.png`}
           alt="cap"
           className={styles["main__button-image"]}
           motionProps={{
@@ -48,7 +48,7 @@ export const PageHome = () => {
           }}
         />
         <Image
-          src={`${MINIO_BUCKET_URL}/home/main/tshirt.png`}
+          src={`${MINIO_BUCKET_URL}/shared/tshirt.png`}
           alt="tshirt"
           className={styles["main__button-image"]}
           motionProps={{

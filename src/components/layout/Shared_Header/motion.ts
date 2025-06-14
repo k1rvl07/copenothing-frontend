@@ -1,12 +1,36 @@
 import { buttonMotion, routerLinkMotion } from "@motion";
+import type { isOpen } from "./types";
 
 export const basicWithShadow = buttonMotion.basicWithShadow;
 
 export const burgerMenuButtonMotionProps = {
-  initial: { rotate: 0, opacity: 0 },
+  variants: {
+    open: {
+      rotate: 180,
+      opacity: 1,
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+    closed: {
+      rotate: -180,
+      opacity: 1,
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+    initial: {
+      rotate: 0,
+      opacity: 0,
+    },
+    exit: (isOpen: isOpen) => ({
+      rotate: isOpen ? 180 : -180,
+      opacity: 0,
+      transition: { duration: 0.4, ease: "easeInOut" },
+    }),
+  },
+  exit: "exit",
+  initial: {
+    rotate: 0,
+    opacity: 0,
+  },
   transition: { duration: 0.4, ease: "easeInOut" },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
 };
 
 export const routerLinkMotionProps = routerLinkMotion.basicForHeaderAndBurgerMenu;

@@ -1,4 +1,4 @@
-import type { WithClassName, WithMotionProps } from "@/types/types";
+import type { WithClassName, WithMotionProps } from "@types";
 
 export type ImageProps = Partial<
   WithClassName &

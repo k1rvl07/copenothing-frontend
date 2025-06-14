@@ -83,6 +83,6 @@ export type CustomComponent<P extends Record<string, unknown> = Record<string, u
 
 export type NavLink = {
   id: string;
-  label: string;
+  name: string;
   link: string;
 };

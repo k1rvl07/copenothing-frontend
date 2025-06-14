@@ -1,0 +1,219 @@
+@use "abstracts/index.scss" as *;
+
+.footer {
+    background-color: (color("white"));
+    border-radius: 50px 50px 0 0;
+    @include respond-to(tablet) {
+        background-color: transparent;
+        @include spacing(margin, (0 0 20px));
+    }
+    @include respond-to(laptop) {
+        @include spacing(margin, (0 0 24px));
+    }
+    @include respond-to(desktop) {
+        @include spacing(margin, (0 0 30px));
+    }
+    &__container {
+        @include flex(true, column, $gap: 10px);
+        @include spacing(padding, (20px));
+        background-color: color("white");
+        border-radius: 50px 50px 0 0;
+        @include respond-to(tablet) {
+            border-radius: 50px;
+        }
+        @include respond-to(desktop) {
+            @include grid(true, repeat(2, auto), repeat(2, auto), "banner nav-contact-wrapper" "copyright copyright");
+        }
+    }
+    &__wrapper {
+        border-radius: 30px;
+    }
+    &__wrapper:nth-child(1),
+    &__wrapper:nth-child(3) {
+        background-color: color("primary");
+    }
+    &__wrapper:nth-child(1) {
+        @include respond-to(desktop) {
+            @include grid-item-alignment(banner);
+        }
+    }
+    &__wrapper:nth-child(2) {
+        background-color: color("surface");
+        @include respond-to(desktop) {
+            @include grid-item-alignment(nav-contact-wrapper);
+        }
+    }
+    &__wrapper:nth-child(3) {
+        @include respond-to(desktop) {
+            @include grid-item-alignment(copyright);
+        }
+    }
+    .banner {
+        @include position(relative);
+        overflow: hidden;
+        border-radius: 30px;
+        @include spacing(padding, (25px 30px));
+        @include flex(true, column, $align-items: center, $justify-content: space-between, $gap: 20px);
+        @include respond-to(tablet) {
+            @include spacing(padding, (90px 38px));
+        }
+        @include respond-to(laptop) {
+            @include spacing(padding, (90px 166px));
+        }
+        @include respond-to(desktop) {
+            @include spacing(padding, (70px 16px 271px));
+        }
+        &__text {
+            text-align: center;
+            @include size(default, 210px);
+            @include font("poppins", regular, normal, "black", 1.2, 15px, 21px);
+            @include respond-to(tablet) {
+                @include size(default, 361px);
+            }
+        }
+        &__background {
+            display: none;
+            @include respond-to(tablet) {
+                display: block;
+                @include position(absolute);
+            };
+            &:nth-of-type(2) {
+                @include size(default, 254px);
+                @include position(
+                    $inset: (auto -100px -95px auto),
+                );
+                @include respond-to(laptop) {
+                    @include position(
+                        $inset: (auto -80px -20px auto),
+                    );
+                };
+            }
+            &:nth-of-type(3) {
+                @include size(default, 150px);
+                @include position(
+                    $inset: (-10px -20px 0 auto),
+                )
+            }
+            &:nth-of-type(4) {
+                @include size(default, 180px);
+                @include position(
+                    $inset: (auto 0 0 5px),
+                )
+            }
+        }
+    }
+    .nav-contact-wrapper {
+        @include spacing(padding, (10px));
+        @include flex(true, column, $gap: 12px);
+    }
+    .nav {
+        background-color: color("white");
+        border-radius: 20px;
+        &__list {
+            @include flex(true, column, $gap: 8px);
+            @include spacing(padding, (8px));
+            @include respond-to(laptop) {
+                @include flex($direction: row, $justify-content: space-between);
+            }
+        }
+        &__item {
+            @include flex(true, $align-items: center, $justify-content: center);
+            background-color: color("surface");
+            border-radius: 12px;
+            @include respond-to(laptop) {
+                @include size(default, 218.75px);
+            }
+            @include respond-to(desktop) {
+                @include size(default, 198.75px);
+            }
+        }
+        &__link {
+            @include font("krona-one", regular, normal, "black", 1.2, 15px);
+            @include size(default, 100%);
+            @include spacing(padding, (10px 0px));
+            text-align: center;
+            border-radius: 12px;
+            @include respond-to(laptop) {
+                @include spacing(padding, (49px 0));
+            }
+        }
+    }
+    .contact {
+        @include flex(true, column, $align-items: center, $gap: 24px);
+        @include spacing(padding, (0 15px));
+        @include respond-to(tablet) {
+            @include spacing(padding, (0 175px));
+        }
+        @include respond-to(laptop) {
+            @include spacing(padding, (0 300px));
+        }
+        @include respond-to(desktop) {
+            @include spacing(padding, (0 263px));
+        }
+        &__wrapper {
+            background-color: color("white");
+            border-radius: 20px;
+            @include size(default, (auto, 170px));
+            @include flex(true, $align-items: center, $justify-content: center);
+            @include respond-to(tablet) {
+                @include size(default, (null, 228px));
+            }
+            @include respond-to(desktop) {
+                @include size(default, (null, 335px));
+            }
+        }
+        &__text {
+            text-align: center;
+            @include font("krona-one", regular, normal, "black", 1.2, 12px, 15px);
+            @include respond-to(desktop) {
+                @include size(default, 310px);
+            }
+        }
+        &__link {
+            @include button((12px 0px), "primary", $border-radius: 150px);
+            @include size(default, 100%);
+            @include font("krona-one", regular, normal, "black", 1.2, 12px, 15px);
+            @include respond-to(desktop) {
+                @include size(default, 310px);
+            }
+        }
+    }
+    .copyright {
+        @include flex(true, column, $align-items: center, $justify-content: center, $gap: 12px);
+        @include spacing(padding, (20px));
+        @include respond-to(tablet) {
+            @include spacing(padding, (20px 40px));
+            @include flex($align-items: start, $gap: 20px);
+        }
+        @include respond-to(laptop) {
+            @include flex($direction: row-reverse, $justify-content: start, $gap: 0);
+        }
+        &__text {
+            @include font("krona-one", regular, normal, "black", 2, 12px);
+            text-align: center;
+            &:nth-child(1) {
+                @include respond-to(laptop) {
+                    @include flex-item-alignment($order: 2);
+                    @include spacing(margin, (0 20px 0 auto));
+                }
+                @include respond-to(desktop) {
+                    @include spacing(margin, (0 40px 0 auto));
+                }
+            }
+            &:nth-child(2) {
+                @include respond-to(laptop) {
+                    @include flex-item-alignment($order: 1);
+                }
+            }
+            &:nth-child(3) {
+                @include size(default, 220px);
+                @include respond-to(tablet) {
+                    @include size(default, fit-content);
+                }
+                @include respond-to(laptop) {
+                    @include flex-item-alignment($order: 3);
+                }
+            }
+        }
+    }
+}

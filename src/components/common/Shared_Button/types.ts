@@ -1,4 +1,4 @@
-import type { WithChildren, WithClassName, WithDisabled, WithMotionProps, WithOnClick } from "@/types/types";
+import type { WithChildren, WithClassName, WithDisabled, WithMotionProps, WithOnClick } from "@types";
 
 export type ButtonProps = Partial<
   WithChildren<
