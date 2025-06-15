@@ -147,6 +147,7 @@
         }
     }
     &__button {
+        @include flex(true);
         @include button((28px, 77px), $border-style: 6px solid color("white"), $border-radius: 40px);
         @include font("krona-one", regular, normal, "white", 1.2, 17px);
         background: radial-gradient(ellipse at center, #525252 0%, #282828 100%);

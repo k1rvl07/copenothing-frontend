@@ -2,7 +2,7 @@ import { useModalConnectWalletStore } from "@/stores";
 import { Shared_Button as Button } from "@components";
 import { abbreviateWalletAddress } from "@utils";
 import React from "react";
-import { basicWithShadow } from "./motion";
+import { buttonMotionProps } from "./motion";
 import styles from "./styles.module.scss";
 import type { ButtonConnectWalletProps } from "./types";
 
@@ -15,7 +15,7 @@ export const Shared_ButtonConnectWallet = ({ className, onClick, disabled }: But
       className={`${styles["button-connect-wallet"]} ${className}`}
       onClick={onClick}
       disabled={disabled}
-      motionProps={basicWithShadow}
+      motionProps={buttonMotionProps}
     >
       {walletAddress ? abbreviatedWalletAddress : "CONNECT WALLET"}
     </Button>

@@ -15,6 +15,7 @@
         &__link {
             @include button((18px, 24px), "white", $border-radius: 40px);
             @include font("krona-one", regular, normal, "black", 20px, 18px);
+            @include flex(true);
         }
     }
     .button {

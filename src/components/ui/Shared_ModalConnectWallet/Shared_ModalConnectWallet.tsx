@@ -12,7 +12,7 @@ import { AnimatePresence } from "framer-motion";
 import type React from "react";
 import { useState } from "react";
 import { modalMotionProps } from "./motion";
-import { basicWithShadow } from "./motion";
+import { buttonMotionProps } from "./motion";
 import styles from "./styles.module.scss";
 
 export const Shared_ModalConnectWallet = () => {
@@ -52,7 +52,7 @@ export const Shared_ModalConnectWallet = () => {
               minLength={27}
               maxLength={44}
             />
-            <Button className={styles.form__button} type="submit" motionProps={basicWithShadow}>
+            <Button className={styles.form__button} type="submit" motionProps={buttonMotionProps}>
               CONNECT
             </Button>
           </Form>

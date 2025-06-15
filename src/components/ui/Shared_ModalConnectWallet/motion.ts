@@ -1,6 +1,6 @@
 import { buttonMotion } from "@motion";
 
-export const basicWithShadow = buttonMotion.basicWithShadow;
+export const buttonMotionProps = buttonMotion.basicWithShadow;
 
 export const modalMotionProps = {
   initial: { opacity: 0, y: 20 },

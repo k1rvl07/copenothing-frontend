@@ -170,6 +170,7 @@
             }
         }
         &__link {
+            @include flex(true, row, $align-items: center, $justify-content: center);
             @include button((12px 0px), "primary", $border-radius: 150px);
             @include size(default, 100%);
             @include font("krona-one", regular, normal, "black", 1.2, 12px, 15px);

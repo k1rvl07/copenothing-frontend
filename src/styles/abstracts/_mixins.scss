@@ -352,8 +352,6 @@
 }
 
 @mixin button($spacing: null, $background-color: null, $border-style: null, $border-radius: null) {
-    @include flex(true, $align-items: center, $justify-content: center);
-    @include size(default, fit-content);
 
     @if $spacing != null {
         $arg1: list.nth($spacing, 1);

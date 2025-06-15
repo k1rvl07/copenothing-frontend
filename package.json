@@ -7,12 +7,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "biome lint .",
-    "lint:fix": "biome lint --write",
-    "lint:unsafe": "biome lint --unsafe .",
-    "format": "biome format .",
-    "format:write": "biome format --write",
-    "check:unsafe:write": "biome check --unsafe --write"
+    "biome": "biome check --unsafe --write ."
   },
   "dependencies": {
     "next": "15.3.2",

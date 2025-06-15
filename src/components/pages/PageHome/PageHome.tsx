@@ -5,10 +5,12 @@ import {
   Shared_Link as Link,
   Shared_RouterLink as RouterLink,
   Shared_Section as Section,
+  Home_SectionToken as SectionToken,
   Shared_Text as Text,
 } from "@components";
 import { env } from "@utils";
 import { useAnimation } from "framer-motion";
+import { TOKEN } from "./content";
 import {
   buttonBasicWithShadowMotionProps,
   mainButtonImageCapMotionProps,
@@ -23,7 +25,7 @@ export const PageHome = () => {
   const mainButtonControls = useAnimation();
   return (
     <main>
-      <Section className={styles.main} containerClassName={styles.main__container}>
+      <Section id="main" className={styles.main} containerClassName={styles.main__container}>
         <Image src={`${MINIO_BUCKET_URL}/shared/pepe.png`} alt="pepe" className={styles.main__background} />
         <Image src={`${MINIO_BUCKET_URL}/shared/pond.png`} alt="pond" className={styles.main__background} />
         <Image src={`${MINIO_BUCKET_URL}/shared/cap.png`} alt="cap" className={styles.main__background} />
@@ -65,7 +67,7 @@ export const PageHome = () => {
           />
         </Box>
       </Section>
-      <Section className={styles.about} containerClassName={styles.about__container}>
+      <Section id="about" className={styles.about} containerClassName={styles.about__container}>
         <Box className={styles.about__wrapper}>
           <Image src={`${MINIO_BUCKET_URL}/home/about/image.png`} alt="image" className={styles.about__image} />
           <Box className={styles.about__content}>
@@ -92,6 +94,16 @@ export const PageHome = () => {
           </Box>
         </Box>
       </Section>
+      {TOKEN.map((token) => (
+        <SectionToken
+          key={token.id}
+          id={token.id}
+          img={token.img}
+          name={token.name}
+          description={token.description}
+          link={token.link}
+        />
+      ))}
     </main>
   );
 };

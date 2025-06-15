@@ -1,0 +1,94 @@
+@use "abstracts/index.scss" as *;
+
+.token {
+    background-color: color("white");
+    border-radius: 30px;
+    @include respond-to(tablet) {
+        background-color: transparent;
+    }
+    &__container {
+        background-color: color("white");
+        border-radius: 30px;
+    }
+    &__wrapper {
+        @include flex(true, column, $align-items: center, $gap: 28px);
+        @include spacing(padding, (20px 20px 40px));
+        @include respond-to(laptop) {
+            @include flex($gap: 40px);
+        }
+        @include respond-to(desktop) {
+            @include flex($gap: 0px);
+        }
+        &-pndc {
+            @include respond-to(desktop) {
+                @include flex($direction: row-reverse);
+            }
+        }
+        &-pepe {
+            @include respond-to(desktop) {
+                @include flex($direction: row);
+            }
+        }
+    }
+    &__image {
+        border-radius: 15px;
+        @include object-fit(cover, center);
+        @include respond-to(desktop) {
+            @include size(default, (720px, 504px));
+        }
+    }
+    &__content {
+        @include flex(true, column, $align-items: center);
+        @include respond-to(desktop) {
+            @include flex($align-items: flex-start);
+        }
+        &-pndc {
+            @include respond-to(tablet) {
+                @include size(default, 445px);
+            }
+            @include respond-to(desktop) {
+                @include spacing(margin, (0 219px 0 0));
+            }
+        }
+        &-pepe {
+            @include respond-to(tablet) {
+                @include size(default, 586px);
+            }
+            @include respond-to(desktop) {
+                @include spacing(margin, (0 0 0 124px));
+                @include size(default, 474px);
+            }
+        }
+    }
+    &__title {
+        text-align: center;
+        @include font("krona-one", regular, normal, "black", 1.2, 24px, 30px, 30px, 40px);
+        @include respond-to(desktop) {
+            text-align: left;
+        }
+        &-highlight {
+            color: color("primary");
+        }
+    }
+    &__description {
+        text-align: center;
+        @include spacing(margin, (24px 0 40px));
+        @include font("poppins", regular, normal, "black", 24px, 15px);
+        @include respond-to(tablet) {
+            @include spacing(margin, (32px 0 40px));
+        }
+        @include respond-to(desktop) {
+            text-align: left;
+        }
+    }
+    &__link {
+        @include flex(true, $align-items: center, $justify-content: center);
+        @include button((20px 0), "primary", $border-radius: 40px);
+        @include size(default, 100%);
+        @include font("krona-one", regular, normal, "black", 24px, 15px);
+        @include respond-to(tablet) {
+            @include size(default, fit-content);
+            @include spacing(padding, (20px 40px));
+        }
+    }
+}
