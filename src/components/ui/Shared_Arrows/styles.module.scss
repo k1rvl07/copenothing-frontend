@@ -1,0 +1,23 @@
+@use "abstracts/index.scss" as *;
+
+.arrows {
+    background-color: color("white");
+    border-radius: 140px;
+    @include size(default, fit-content);
+    &__wrapper {
+        @include spacing(padding, 4px);
+        @include flex(true, $align-items: center, $justify-content: center, $gap: 4px);
+    }
+    &__button {
+        background-color: color("primary");
+        border-radius: 150px;
+    }
+    &__image {
+        @include spacing(padding, 6px);
+        @include size(default, 36px);
+        @include respond-to(tablet) {
+            @include size(default, 56px);
+            @include spacing(padding, 12px);
+        }
+    }
+}

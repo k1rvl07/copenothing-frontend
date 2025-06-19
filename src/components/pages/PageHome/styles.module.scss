@@ -261,3 +261,85 @@
         }
     }
 }
+
+.how-to-buy {
+    &__container {
+        @include grid(true, repeat(2, auto), repeat(2, auto), "title arrows" "slider slider", $row-gap: 20px);
+        @include respond-to(tablet) {
+            @include grid($row-gap: 28px);
+        }
+    }
+    &__title {
+        @include grid-item-alignment(title);
+        @include size(default, fit-content);
+        @include spacing(padding, (10px 20px));
+        background-color: color("white");
+        border-radius: 150px;
+        @include font("krona-one", regular, normal, "black", 24px, 15px, 20px);
+        @include respond-to(tablet) {
+            @include spacing(padding, (20px 30px));
+        }
+    }
+    &__arrows {
+        @include grid-item-alignment(arrows, end, center);
+    }
+    .slider {
+        @include grid-item-alignment(slider);
+        &__slides {
+            @include flex(true, $align-items: center, $gap: 12px);
+            @include respond-to(tablet) {
+                @include flex($gap: 20px);
+            }
+        }
+        &__slide {
+            &:nth-child(5) {
+                .card {
+                    &__image {
+                        border: 4px solid color("primary");
+                    }
+                }
+            }
+            &:nth-child(6) {
+                .card {
+                    &__image {
+                        @include size(default, (100%, 100%));
+                        @include spacing(padding, (12px));
+                        border-radius: 40px;
+                        @include respond-to(tablet) {
+                            border-radius: 60px;
+                        }
+                    }
+                }
+            }
+        }
+        .card {
+            @include position(relative);
+            @include size(default, (280px, 392px));
+            border-radius: 30px;
+            background-color: color("white");
+            @include respond-to(tablet) {
+                @include size(default, (370px, 532px));
+                border-radius: 50px;
+            }
+            &__wrapper {
+                @include spacing(padding, (12px 12px 48px));
+                @include flex(true, column, $align-items: center, $gap: 24px);
+                @include respond-to(tablet) {
+                    @include spacing(padding, (12px 12px 64 px));
+                    @include flex($gap: 48px);
+                }
+            }
+            &__image {
+                @include size(default, (100%, 100%));
+                @include object-fit(cover, center);
+                border-radius: 20px;
+                @include respond-to(tablet) {
+                    border-radius: 50px;
+                }
+            }
+            &__title {
+                @include font("krona-one", regular, normal, "black", 1.2, 20px);
+            }
+        }
+    }
+}

@@ -7,6 +7,7 @@ import {
   Shared_ModalConnectWallet as ModalConnectWallet,
 } from "@components";
 import { env } from "@utils";
+import classNames from "classnames";
 import { Comic_Neue, Krona_One, Poppins, Rubik_Bubbles } from "next/font/google";
 import styles from "./styles.module.scss";
 
@@ -36,13 +37,6 @@ const comicNeue = Comic_Neue({
   variable: "--font-comic-neue",
 });
 
-const fonts = {
-  poppins,
-  kronaOne,
-  rubikBubbles,
-  comicNeue,
-};
-
 export const metadata = {
   title: "Copenothing",
   description: "Online merch store",
@@ -52,7 +46,13 @@ export default function Layout({ children }: WithChildren) {
   return (
     <html
       lang="en"
-      className={`${styles.html} ${fonts.poppins.variable} ${fonts.kronaOne.variable} ${fonts.rubikBubbles.variable} ${fonts.comicNeue.variable}`}
+      className={classNames(
+        styles.html,
+        poppins.variable,
+        kronaOne.variable,
+        rubikBubbles.variable,
+        comicNeue.variable,
+      )}
     >
       <head>
         <link rel="icon" href={`${MINIO_BUCKET_URL}/favicon/logo.ico`} />

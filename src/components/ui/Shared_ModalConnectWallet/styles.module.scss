@@ -34,7 +34,7 @@
             @include spacing(margin, (16px 0));
             @include size(default, 100%);
             &::placeholder {
-                color: color("grey");
+                color: color("gray");
             }
         }
         &__button {

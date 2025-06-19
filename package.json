@@ -23,6 +23,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
+    "classnames": "^2.5.1",
     "cssnano": "^7.0.7",
     "dotenv": "^16.5.0",
     "framer-motion": "^12.18.1",

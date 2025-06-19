@@ -1,6 +1,7 @@
 import { useModalConnectWalletStore } from "@/stores";
 import { Shared_Button as Button } from "@components";
 import { abbreviateWalletAddress } from "@utils";
+import classNames from "classnames";
 import React from "react";
 import { buttonMotionProps } from "./motion";
 import styles from "./styles.module.scss";
@@ -12,7 +13,7 @@ export const Shared_ButtonConnectWallet = ({ className, onClick, disabled }: But
 
   return (
     <Button
-      className={`${styles["button-connect-wallet"]} ${className}`}
+      className={classNames(styles["button-connect-wallet"], className)}
       onClick={onClick}
       disabled={disabled}
       motionProps={buttonMotionProps}

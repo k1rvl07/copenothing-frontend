@@ -1,0 +1,15 @@
+@use "abstracts/index.scss" as *;
+
+.slider {
+    overflow: hidden;
+    &__window {
+        overscroll-behavior: contain;
+        overflow: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+    &__slide {
+        scroll-snap-align: start;
+        @include position(relative);
+    }
+}

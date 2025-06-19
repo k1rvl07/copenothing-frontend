@@ -1,16 +1,19 @@
 "use client";
 import {
+  Shared_Arrows as Arrows,
   Shared_Box as Box,
   Shared_Image as Image,
   Shared_Link as Link,
   Shared_RouterLink as RouterLink,
   Shared_Section as Section,
   Home_SectionToken as SectionToken,
+  Shared_Slider as Slider,
   Shared_Text as Text,
 } from "@components";
+import { useSlider } from "@hooks";
 import { env } from "@utils";
 import { useAnimation } from "framer-motion";
-import { TOKEN } from "./content";
+import { CARDS_HOW_TO_BUY, SECTIONS_TOKEN } from "./content";
 import {
   buttonBasicWithShadowMotionProps,
   mainButtonImageCapMotionProps,
@@ -23,6 +26,7 @@ const MINIO_BUCKET_URL = env.MINIO_BUCKET_URL;
 
 export const PageHome = () => {
   const mainButtonControls = useAnimation();
+  const sliderHowToBuy = useSlider();
   return (
     <main>
       <Section id="main" className={styles.main} containerClassName={styles.main__container}>
@@ -94,7 +98,50 @@ export const PageHome = () => {
           </Box>
         </Box>
       </Section>
-      {TOKEN.map((token) => (
+      <Section className={styles["how-to-buy"]} containerClassName={styles["how-to-buy__container"]}>
+        <Text className={styles["how-to-buy__title"]}>HOW TO BUY</Text>
+        <Arrows
+          className={styles["how-to-buy__arrows"]}
+          onNext={sliderHowToBuy.scrollToNextSlide}
+          onPrev={sliderHowToBuy.scrollToPrevSlide}
+          isFirst={sliderHowToBuy.isBeginning}
+          isLast={sliderHowToBuy.isEnd}
+        />
+        <Slider
+          className={styles.slider}
+          windowClassName={styles.slider__window}
+          slidesClassName={styles.slider__slides}
+          slideClassName={styles.slider__slide}
+          windowRef={sliderHowToBuy.windowRef}
+          slidesRef={sliderHowToBuy.slidesRef}
+        >
+          {CARDS_HOW_TO_BUY.map((card) => {
+            return (
+              <Box key={card.id} className={styles.card}>
+                {card.title ? (
+                  <Box className={styles.card__wrapper}>
+                    <Image
+                      className={styles.card__image}
+                      src={`${MINIO_BUCKET_URL}/home/how-to-buy/${card.img}`}
+                      alt={card.title}
+                    />
+                    <Text className={styles.card__title}>{card.title}</Text>
+                  </Box>
+                ) : (
+                  <>
+                    <Image
+                      className={styles.card__image}
+                      src={`${MINIO_BUCKET_URL}/home/how-to-buy/${card.img}`}
+                      alt="enjoy"
+                    />
+                  </>
+                )}
+              </Box>
+            );
+          })}
+        </Slider>
+      </Section>
+      {SECTIONS_TOKEN.map((token) => (
         <SectionToken
           key={token.id}
           id={token.id}
